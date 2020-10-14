@@ -14,7 +14,7 @@ Its basically uses Python's `requests` library for sending the GET request from 
 
 
 ## Usage
-`Usage: python3 cget <url> <mode (--file or --json --print)> <filename (optional)>`
+`Usage: python3 cget <url> <mode (--file or --json or --print)> <filename (optional)>`
 
 ### Samples
 - `python3 cget.py https://www.google.com/ --file google-clone.html` (This clones the HTML content of the Google page)
