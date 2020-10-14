@@ -1,4 +1,9 @@
 
+"""
+This piece of code is written by ShaderOX (https://github.com/ShaderOX/). It is open-source and freely available.
+While using this kindly provide credits
+Enjoy!
+"""
 from utils import *
 
 
