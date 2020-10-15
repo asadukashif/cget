@@ -13,5 +13,5 @@ python3 install -r requirements.txt
 cd ..
 rm -rf ./CGet/
 echo "\"$HOME/$NEW_DIR_NAME/cget.py\""
-echo "alias cget=\"python3 \"$HOME/$NEW_DIR_NAME/cget.py\"\"" >> "$HOME/.bashrc"
+echo "alias cget=\"python3 \"$HOME/$NEW_DIR_NAME/cget.py\"\"" >> "$HOME/.bashrc" 
 echo Done!
