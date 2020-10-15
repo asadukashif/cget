@@ -28,6 +28,11 @@ Its basically uses Python's `requests` library for sending the GET request from 
 
 
 ## Installation
+
+### Automated 1-Step Process
+    wget https://raw.githubusercontent.com/ShaderOX/CGet/master/install.sh && sh ./install.sh && rm ./install.sh
+____
+
 To install you can use the following command 
 
     git clone https://github.com/ShaderOX/CGet.git
