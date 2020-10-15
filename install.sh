@@ -1,6 +1,6 @@
 #! /usr/bin/bash 
 
-NEW_DIR_NAME="Custom Scripts Test 2"
+NEW_DIR_NAME="Custom Scripts"
 
 cd $HOME 
 mkdir "$NEW_DIR_NAME"
