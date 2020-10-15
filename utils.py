@@ -88,4 +88,40 @@ def get_filename_from_url(url):
 
 def to_KBs(bytes, decimal_places=2):
     """ Returns the bytes conversion into KBs """
-    return (bytes/1024).__round__(decimal_places)
+    byte_length = 1024
+    formatted = (bytes/byte_length).__round__(decimal_places)
+    return formatted
+
+
+def handle_file_mode(url, mode, filepath, json=False):
+    """ Handles if the user requested the response to be stored in a file """
+    BarType = ChargingBar
+    CHUNK_SIZE = 1024 * 1024
+
+    response = requests.get(url, stream=True)
+    total_size = len(response.content)
+    create_file(filepath)
+    try:
+        with BarType(filepath, max=total_size) as b:
+            total_bytes = 0
+            original_suffix = b.suffix
+            for segment in response.iter_content(chunk_size=CHUNK_SIZE):
+                segment_size = len(segment)
+                total_bytes += segment_size
+                b.suffix = original_suffix
+                b.suffix += f"    {to_KBs(total_bytes)} KB - {to_KBs(segment_size)}KBs/sec"
+                add_to_file(filepath, segment)
+                b.next(segment_size)
+        if json:
+            add_to_file(filepath, dumps(response.json()), mode='w')
+    except:
+        print("An occurred during the process")
+
+
+def handle_print_mode(url, mode, filepath, json=False):
+    """ Handles if the user requested the response to be displayed to STD_OUT """
+    response = requests.get(url)
+    if not json:
+        print(response.text)
+    else:
+        print(dumps(response.json()))
